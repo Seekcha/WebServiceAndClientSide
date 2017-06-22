@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://PatientCRUD/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="PatientCRUD" targetNamespace="http://PatientCRUD/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:8080/PatientWs/PatientCRUD?xsd=1" namespace="http://PatientCRUD/" />
+    </xsd:schema>
+  </types>
+  <message name="Search">
+    <part name="parameters" element="tns:Search" />
+  </message>
+  <message name="SearchResponse">
+    <part name="parameters" element="tns:SearchResponse" />
+  </message>
+  <message name="Exception">
+    <part name="fault" element="tns:Exception" />
+  </message>
+  <message name="Add">
+    <part name="parameters" element="tns:Add" />
+  </message>
+  <message name="AddResponse">
+    <part name="parameters" element="tns:AddResponse" />
+  </message>
+  <message name="Delete">
+    <part name="parameters" element="tns:Delete" />
+  </message>
+  <message name="DeleteResponse">
+    <part name="parameters" element="tns:DeleteResponse" />
+  </message>
+  <message name="Update">
+    <part name="parameters" element="tns:Update" />
+  </message>
+  <message name="UpdateResponse">
+    <part name="parameters" element="tns:UpdateResponse" />
+  </message>
+  <portType name="PatientCRUD">
+    <operation name="Search">
+      <input wsam:Action="http://PatientCRUD/PatientCRUD/SearchRequest" message="tns:Search" />
+      <output wsam:Action="http://PatientCRUD/PatientCRUD/SearchResponse" message="tns:SearchResponse" />
+      <fault wsam:Action="http://PatientCRUD/PatientCRUD/Search/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="Add">
+      <input wsam:Action="http://PatientCRUD/PatientCRUD/AddRequest" message="tns:Add" />
+      <output wsam:Action="http://PatientCRUD/PatientCRUD/AddResponse" message="tns:AddResponse" />
+      <fault wsam:Action="http://PatientCRUD/PatientCRUD/Add/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="Delete">
+      <input wsam:Action="http://PatientCRUD/PatientCRUD/DeleteRequest" message="tns:Delete" />
+      <output wsam:Action="http://PatientCRUD/PatientCRUD/DeleteResponse" message="tns:DeleteResponse" />
+      <fault wsam:Action="http://PatientCRUD/PatientCRUD/Delete/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="Update">
+      <input wsam:Action="http://PatientCRUD/PatientCRUD/UpdateRequest" message="tns:Update" />
+      <output wsam:Action="http://PatientCRUD/PatientCRUD/UpdateResponse" message="tns:UpdateResponse" />
+      <fault wsam:Action="http://PatientCRUD/PatientCRUD/Update/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+  </portType>
+  <binding name="PatientCRUDPortBinding" type="tns:PatientCRUD">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="Search">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="Add">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="Delete">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="Update">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+  </binding>
+  <service name="PatientCRUD">
+    <port name="PatientCRUDPort" binding="tns:PatientCRUDPortBinding">
+      <soap:address location="http://localhost:8080/PatientWs/PatientCRUD" />
+    </port>
+  </service>
+</definitions>
